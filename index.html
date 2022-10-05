@@ -9,12 +9,20 @@
 <body>
     
     <script>
-        // Get computer's choice with a getComputerChoice function that randomly returns 'Rock', 'Paper' or 'Scissors' //
-        // Assign this choice to the variable: computerSelection //
+    // PSEUODOCODE //
 
         // Prompt user for selection using "prompt()" //
         // Store this selection in variable: playerSelection //
         // Make sure this variable is case-insensitive //
+
+        let playerSelection = prompt('Rock, Paper or Scissors?');
+        playerSelection = playerSelection.toLowerCase();
+        playerFirstLetter = playerSelection.charAt(0).toUpperCase();
+        playerSelection = playerFirstLetter + playerSelection.slice(1);
+        console.log(playerSelection);
+
+        // Get computer's choice with a getComputerChoice function that randomly returns 'Rock', 'Paper' or 'Scissors' //
+        // Assign this choice to the variable: computerSelection //
 
         // Write a function that plays a single round of RPS, taking two paramaters - playerSelection and computerSelection - and returns a string announcing the round winner e.g., "You lose! Paper beats Rock" (don't console.log the result) //
         
