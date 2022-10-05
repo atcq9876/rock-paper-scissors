@@ -23,11 +23,11 @@
             playerSelection = playerSelection.toLowerCase();
             playerFirstLetter = playerSelection.charAt(0).toUpperCase();
             playerSelection = playerFirstLetter + playerSelection.slice(1);
-            console.log(playerSelection);
             if (playerSelection !== 'Rock' && playerSelection !== 'Paper' && playerSelection !== 'Scissors') {
                 alert('Please enter "Rock", "Paper" or "Scissors"')
             }
         }
+        console.log(`You chose ${playerSelection}`);
 
         // Get computer's choice with a getComputerChoice function that randomly returns 'Rock', 'Paper' or 'Scissors'. //
             // Declare an array of strings ('Rock', 'Paper', 'Scissors') //
@@ -39,9 +39,8 @@
             let randomChoice = Math.floor(Math.random() * choices.length)
             return choices[randomChoice];
         }
-
         let computerSelection = getComputerChoice();
-        console.log(computerSelection);
+        console.log(`The computer chose ${computerSelection}`);
 
         // Write a function that plays a single round of RPS, taking two paramaters - playerSelection and computerSelection - and returns a string announcing the round winner e.g., "You lose! Paper beats Rock" (don't console.log the result) //
 
@@ -63,7 +62,7 @@
 
         function game() {
             for (let i = 0; i < 5; i++) {
-                let roundWinner = (playRound(playerSelection, computerSelection);
+                let roundWinner = playRound(playerSelection, computerSelection);
                 console.log(roundWinner);
                 if (roundWinner === 'You win this round!') {
                     userScore++;
@@ -79,7 +78,6 @@
                 console.log(`You tied with the computer overall! The score was ${userScore}:${computerScore}!`)
             }
         }
-
         game();
 
     </script>
