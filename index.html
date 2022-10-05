@@ -9,38 +9,40 @@
 <body>
     
     <script>
-    // PSEUODOCODE //
-
-        // Prompt user for selection using "prompt()" //
-        // Store this selection in variable: playerSelection //
-        // Make sure this variable is case-insensitive //
-        // Use while loop and alert to ensure that a valid input is entered by user //
+        // Declare playerSelection variable
+        // Prompt user for selection using "prompt()"
+        // Store this selection in playerSelection
+        // Make sure this variable is case-insensitive
+        // Use while loop and alert to ensure that a valid input is entered by user
 
         let playerSelection;
-
-        while (playerSelection !== 'Rock' && playerSelection !== 'Paper' && playerSelection !== 'Scissors') {
-            playerSelection = prompt('Rock, Paper or Scissors?');
-            playerSelection = playerSelection.toLowerCase();
-            playerFirstLetter = playerSelection.charAt(0).toUpperCase();
-            playerSelection = playerFirstLetter + playerSelection.slice(1);
-            if (playerSelection !== 'Rock' && playerSelection !== 'Paper' && playerSelection !== 'Scissors') {
-                alert('Please enter "Rock", "Paper" or "Scissors"')
+        function getPlayerChoice() {
+            playerSelection = '';
+            while (playerSelection !== 'Rock' && playerSelection !== 'Paper' && playerSelection !== 'Scissors') {
+                playerSelection = prompt('Rock, Paper or Scissors?');
+                playerSelection = playerSelection.toLowerCase();
+                playerFirstLetter = playerSelection.charAt(0).toUpperCase();
+                playerSelection = playerFirstLetter + playerSelection.slice(1);
+                if (playerSelection !== 'Rock' && playerSelection !== 'Paper' && playerSelection !== 'Scissors') {
+                    alert('Please enter "Rock", "Paper" or "Scissors"')
+                }
             }
+            console.log(`You chose ${playerSelection}`);
         }
-        console.log(`You chose ${playerSelection}`);
 
-        // Get computer's choice with a getComputerChoice function that randomly returns 'Rock', 'Paper' or 'Scissors'. //
-            // Declare an array of strings ('Rock', 'Paper', 'Scissors') //
-            // Use a random choice function on this array //
+        // Declare computerSelection variable
+        // Get computer's choice with a getComputerChoice function that randomly returns 'Rock', 'Paper' or 'Scissors'.
+            // Declare an array of strings ('Rock', 'Paper', 'Scissors')
+            // Use a random choice function on this array
         // Assign this choice to the variable: computerSelection //
 
+        let computerSelection;
         function getComputerChoice() {
             const choices = ['Rock', 'Paper', 'Scissors']
             let randomChoice = Math.floor(Math.random() * choices.length)
-            return choices[randomChoice];
+            computerSelection = choices[randomChoice];
+            console.log(`The computer chose ${computerSelection}`);
         }
-        let computerSelection = getComputerChoice();
-        console.log(`The computer chose ${computerSelection}`);
 
         // Write a function that plays a single round of RPS, taking two paramaters - playerSelection and computerSelection - and returns a string announcing the round winner e.g., "You lose! Paper beats Rock" (don't console.log the result) //
 
@@ -54,14 +56,15 @@
             }
         }
 
-        // Write a "game()" function and call the playRound function INSIDE this one to play a 5 round game that keeps score and reports a winner and loser at the end of each round and the final winner and loser (using console.log) //
+        // Write a "game()" function and call the getPlayerChoice, getComputerChoice and playRound functions INSIDE this one to play a 5 round game that keeps score and reports a winner and loser at the end of each round and the final winner and loser (using console.log) //
         // Use a (for) loop in the game() function //
 
         let userScore = 0;
         let computerScore = 0;
-
         function game() {
             for (let i = 0; i < 5; i++) {
+                getPlayerChoice();
+                getComputerChoice();
                 let roundWinner = playRound(playerSelection, computerSelection);
                 console.log(roundWinner);
                 if (roundWinner === 'You win this round!') {
@@ -79,7 +82,6 @@
             }
         }
         game();
-
     </script>
 </body>
 </html>
