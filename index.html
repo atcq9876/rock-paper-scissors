@@ -20,6 +20,8 @@
         playerFirstLetter = playerSelection.charAt(0).toUpperCase();
         playerSelection = playerFirstLetter + playerSelection.slice(1);
         console.log(playerSelection);
+        // Add a condition that playerSelection must equal R, P or S - otherwise display an error message an reprompt for answer //
+
 
         // Get computer's choice with a getComputerChoice function that randomly returns 'Rock', 'Paper' or 'Scissors'. //
             // Declare an array of strings ('Rock', 'Paper', 'Scissors') //
@@ -36,7 +38,18 @@
         console.log(computerSelection);
 
         // Write a function that plays a single round of RPS, taking two paramaters - playerSelection and computerSelection - and returns a string announcing the round winner e.g., "You lose! Paper beats Rock" (don't console.log the result) //
-        
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection === computerSelection) {
+                console.log('Tie!')
+            } else if (playerSelection === 'Rock' && computerSelection === 'Scissors' || playerSelection === 'Scissors' && computerSelection === 'Paper' || playerSelection === 'Paper' && computerSelection === 'Rock') {
+                console.log('You beat the computer!')
+            } else {
+                console.log('The computer wins!')
+            }
+        }
+
+
         // Write a "game()" function and call the playRound function INSIDE this one to play a 5 round game that keeps score and reports a winner and loser at the end of each round and the final winner and loser (using console.log) //
         // Use a (for) loop in the game() function //
     </script>
