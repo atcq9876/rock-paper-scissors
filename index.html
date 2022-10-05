@@ -17,14 +17,14 @@
 
         let playerSelection;
 
-        while (playerSelection !== 'Rock' || playerSelection !== 'Paper' || playerSelection !== 'Scissors') {
+        while (playerSelection !== 'Rock' && playerSelection !== 'Paper' && playerSelection !== 'Scissors') {
             playerSelection = prompt('Rock, Paper or Scissors?');
             playerSelection = playerSelection.toLowerCase();
             playerFirstLetter = playerSelection.charAt(0).toUpperCase();
             playerSelection = playerFirstLetter + playerSelection.slice(1);
             console.log(playerSelection);
             // Add a condition that playerSelection must equal R, P or S - otherwise display an error message an reprompt for answer //
-            if (playerSelection !== 'Rock' || playerSelection !== 'Paper' || playerSelection !== 'Scissors') {
+            if (playerSelection !== 'Rock' && playerSelection !== 'Paper' && playerSelection !== 'Scissors') {
                 alert('Please enter "Rock", "Paper" or "Scissors"')
             }
         }
