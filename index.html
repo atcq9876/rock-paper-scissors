@@ -14,6 +14,7 @@
         // Prompt user for selection using "prompt()" //
         // Store this selection in variable: playerSelection //
         // Make sure this variable is case-insensitive //
+        // Use while loop and alert to ensure that a valid input is entered by user //
 
         let playerSelection;
 
@@ -23,12 +24,10 @@
             playerFirstLetter = playerSelection.charAt(0).toUpperCase();
             playerSelection = playerFirstLetter + playerSelection.slice(1);
             console.log(playerSelection);
-            // Add a condition that playerSelection must equal R, P or S - otherwise display an error message an reprompt for answer //
             if (playerSelection !== 'Rock' && playerSelection !== 'Paper' && playerSelection !== 'Scissors') {
                 alert('Please enter "Rock", "Paper" or "Scissors"')
             }
         }
-
 
         // Get computer's choice with a getComputerChoice function that randomly returns 'Rock', 'Paper' or 'Scissors'. //
             // Declare an array of strings ('Rock', 'Paper', 'Scissors') //
@@ -55,6 +54,8 @@
                 console.log('The computer wins!')
             }
         }
+
+        playRound(playerSelection, computerSelection);
 
 
         // Write a "game()" function and call the playRound function INSIDE this one to play a 5 round game that keeps score and reports a winner and loser at the end of each round and the final winner and loser (using console.log) //
