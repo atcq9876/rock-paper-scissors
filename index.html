@@ -47,19 +47,38 @@
 
         function playRound(playerSelection, computerSelection) {
             if (playerSelection === computerSelection) {
-                console.log('Tie!')
+                return 'This round is a tie!';
             } else if (playerSelection === 'Rock' && computerSelection === 'Scissors' || playerSelection === 'Scissors' && computerSelection === 'Paper' || playerSelection === 'Paper' && computerSelection === 'Rock') {
-                console.log('You beat the computer!')
+                return 'You win this round!';
             } else {
-                console.log('The computer wins!')
+                return 'The computer wins this round!';
             }
         }
 
-        playRound(playerSelection, computerSelection);
-
-
         // Write a "game()" function and call the playRound function INSIDE this one to play a 5 round game that keeps score and reports a winner and loser at the end of each round and the final winner and loser (using console.log) //
         // Use a (for) loop in the game() function //
+
+        let userScore = 0;
+        let computerScore = 0;
+
+        function game() {
+            for (let i = 0; i < 5; i++) {
+                let roundWinner = (playRound(playerSelection, computerSelection);
+                console.log(roundWinner);
+                if (roundWinner === 'You win this round!') {
+                    userScore++;
+                } else if (roundWinner === 'The computer wins this round!') {
+                    computerScore++;
+                }
+            }
+            if (userScore > computerScore) {
+                console.log(`You beat the computer with a score of ${userScore} to ${computerScore}!`)
+            } else if (computerScore > userScore) {
+                console.log(`The computer beat you with a score of ${computerScore} to ${userScore}!`)
+            } else {
+                console.log(`You tied with the computer overall! The score was ${userScore}:${computerScore}!`)
+            }
+        }
     </script>
 </body>
 </html>
